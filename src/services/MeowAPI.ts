@@ -8,7 +8,7 @@
 import axios from 'axios'
 import { CatBreedListResponse, CatImage, ImageSearchResponse } from '../types/TheCatAPI.types'
 
-const FAKE_DELAY = 1500
+// const FAKE_DELAY = 1500
 
 // Create a new axios instance
 const instance = axios.create({
@@ -23,7 +23,7 @@ const get = async <T>(endpoint: string) => {
 	const response = await instance.get<T>(endpoint)
 
 	// Simulate a delay
-	!!FAKE_DELAY && await new Promise(r => setTimeout(r, FAKE_DELAY))
+	// !!FAKE_DELAY && await new Promise(r => setTimeout(r, FAKE_DELAY))
 
 	return response.data
 }
