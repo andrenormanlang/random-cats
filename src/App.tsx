@@ -1,6 +1,6 @@
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Container from 'react-bootstrap/Container'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Navigation from './pages/partials/Navigation'
 import HomePage from './pages/HomePage'
 import PageNotFound from './pages/PageNotFound'
@@ -15,13 +15,15 @@ const App = () => {
 			<Navigation />
 
 			<Container className="py-3">
-				<Routes>
-					<Route path="/" element={<HomePage />} />
-					<Route path="/random-cat" element={<RandomCatPage />} />
-					<Route path="/random-cat-breed" element={<CatBreed />} />
+				<BrowserRouter basename="">
+					<Routes>
+						<Route path="/" element={<HomePage />} />
+						<Route path="/random-cat" element={<RandomCatPage />} />
+						<Route path="/random-cat-breed" element={<CatBreed />} />
 
-					<Route path="*" element={<PageNotFound />} />
-				</Routes>
+						<Route path="*" element={<PageNotFound />} />
+					</Routes>
+				</BrowserRouter>
 			</Container>
 
 			<ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
