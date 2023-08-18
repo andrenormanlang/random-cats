@@ -5,6 +5,7 @@ import { getCatBreedImage, getRandomCatBreed } from '../services/MeowAPI';
 import CatSpinner from '../components/CatSpinner';
 
 const RandomCatPage: React.FC = () => {
+// is this an example of dependent query??
   const { data: randomCatBreed, error: breedsError, isFetching, refetch } = useQuery({
     queryKey: ['random-cat-breed'],
     queryFn: getRandomCatBreed,
@@ -26,7 +27,7 @@ const RandomCatPage: React.FC = () => {
       <p>Explore different cat breeds and their characteristics!</p>
 
       <div className="mb-3">
-        <Button onClick={() => refetch()} variant="primary">
+        <Button disabled={isFetching} onClick={() => refetch()} variant="primary">
           Get Another Cat Breed
         </Button>
       </div>
